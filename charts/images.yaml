@@ -7,76 +7,76 @@ images:
 # Gardener components
 - name: gardenlet
   sourceRepository: github.com/gardener/gardener
-  repository: eu.gcr.io/gardener-project/gardener/gardenlet
+  repository: vesoft/gardenlet
 - name: gardener-seed-admission-controller
   sourceRepository: github.com/gardener/gardener
-  repository: eu.gcr.io/gardener-project/gardener/seed-admission-controller
+  repository: vesoft/seed-admission-controller
 
 # Seed bootstrap
 - name: pause-container
   sourceRepository: github.com/kubernetes/kubernetes/blob/master/build/pause/Dockerfile
-  repository: gcr.io/google_containers/pause-amd64
+  repository: vesoft/pause-amd64
   tag: "3.1"
 - name: etcd-druid
   sourceRepository: github.com/gardener/etcd-druid
-  repository: eu.gcr.io/gardener-project/gardener/etcd-druid
+  repository: vesoft/etcd-druid
   tag: "v0.3.0"
 - name: gardener-resource-manager
   sourceRepository: github.com/gardener/gardener-resource-manager
-  repository: eu.gcr.io/gardener-project/gardener/gardener-resource-manager
+  repository: vesoft/gardener-resource-manager
   tag: "v0.17.0"
 - name: dependency-watchdog
   sourceRepository: github.com/gardener/dependency-watchdog
-  repository: eu.gcr.io/gardener-project/gardener/dependency-watchdog
+  repository: vesoft/dependency-watchdog
   tag: "v0.5.0"
 
 # Seed controlplane
 - name: hyperkube # used for kubectl + kubelet binaries on the worker nodes
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/hyperkube
+  repository: vesoft/hyperkube
 - name: kube-apiserver
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/hyperkube
+  repository: vesoft/hyperkube
   targetVersion: "< 1.17"
 - name: kube-apiserver
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/kube-apiserver
+  repository: vesoft/kube-apiserver
   targetVersion: ">= 1.17"
 - name: kube-controller-manager
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/hyperkube
+  repository: vesoft/hyperkube
   targetVersion: "< 1.17"
 - name: kube-controller-manager
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/kube-controller-manager
+  repository: vesoft/kube-controller-manager
   targetVersion: ">= 1.17"
 - name: kube-scheduler
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/hyperkube
+  repository: vesoft/hyperkube
   targetVersion: "< 1.17"
 - name: kube-scheduler
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/kube-scheduler
+  repository: vesoft/kube-scheduler
   targetVersion: ">= 1.17"
 - name: kube-proxy
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/hyperkube
+  repository: vesoft/hyperkube
   targetVersion: "< 1.17"
 - name: kube-proxy
   sourceRepository: github.com/kubernetes/kubernetes
-  repository: k8s.gcr.io/kube-proxy
+  repository: vesoft/kube-proxy
   targetVersion: ">= 1.17"
 - name: cluster-autoscaler
   sourceRepository: github.com/gardener/autoscaler
-  repository: eu.gcr.io/gardener-project/gardener/autoscaler/cluster-autoscaler
+  repository: vesoft/cluster-autoscaler
   tag: "v0.10.0"
 - name: vpn-seed
   sourceRepository: github.com/gardener/vpn
-  repository: eu.gcr.io/gardener-project/gardener/vpn-seed
+  repository: vesoft/vpn-seed
   tag: "0.19.0"
 - name: konnectivity-server
   sourceRepository: github.com/kubernetes-sigs/apiserver-network-proxy
-  repository: eu.gcr.io/k8s-artifacts-prod/kas-network-proxy/proxy-server
+  repository: vesoft/proxy-server
   tag: "v0.0.12"
 
 # Monitoring
@@ -110,23 +110,23 @@ images:
   tag: v0.14.0
 - name: metrics-server
   sourceRepository: github.com/kubernetes-incubator/metrics-server
-  repository: k8s.gcr.io/metrics-server-amd64
+  repository: vesoft/metrics-server-amd64
   tag: v0.3.6
   targetVersion: ">= 1.11"
 - name: metrics-server
   sourceRepository: github.com/kubernetes-incubator/metrics-server
-  repository: k8s.gcr.io/metrics-server-amd64
+  repository: vesoft/metrics-server-amd64
   tag: v0.3.1
   targetVersion: 1.10.x
 
 # Shoot core addons
 - name: vpn-shoot
   sourceRepository: github.com/gardener/vpn
-  repository: eu.gcr.io/gardener-project/gardener/vpn-shoot
+  repository: vesoft/vpn-shoot
   tag: "0.19.0"
 - name: konnectivity-agent
   sourceRepository: github.com/kubernetes-sigs/apiserver-network-proxy
-  repository: eu.gcr.io/k8s-artifacts-prod/kas-network-proxy/proxy-agent
+  repository: vesoft/proxy-agent
   tag: "v0.0.12"
 - name: coredns
   sourceRepository: github.com/coredns/coredns
@@ -134,17 +134,17 @@ images:
   tag: "1.7.0"
 - name: node-local-dns
   sourceRepository: github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/nodelocaldns
-  repository: k8s.gcr.io/k8s-dns-node-cache
+  repository: vesoft/k8s-dns-node-cache
   tag: "1.15.13"
 - name: node-problem-detector
   sourceRepository: github.com/kubernetes/node-problem-detector
-  repository: k8s.gcr.io/node-problem-detector
+  repository: vesoft/node-problem-detector
   tag: "v0.8.2"
 
 # Shoot optional addons
 - name: kubernetes-dashboard
   sourceRepository: github.com/kubernetes/dashboard
-  repository: k8s.gcr.io/kubernetes-dashboard-amd64
+  repository: vesoft/kubernetes-dashboard-amd64
   tag: v1.10.1
   targetVersion: "< 1.16"
 - name: kubernetes-dashboard
@@ -163,7 +163,7 @@ images:
   tag: "0.22.0"
 - name: ingress-default-backend
   sourceRepository: github.com/gardener/ingress-default-backend
-  repository: eu.gcr.io/gardener-project/gardener/ingress-default-backend
+  repository: vesoft/ingress-default-backend
   tag: "0.8.0"
 
 # Miscellaenous
@@ -176,13 +176,13 @@ images:
   tag: "3.10.3"
 - name: alpine-iptables
   sourceRepository: github.com/DockToFuture/alpine-iptables
-  repository: eu.gcr.io/gardener-project/alpine-iptables
+  repository: vesoft/alpine-iptables
   tag: "3.10.3"
 
 # Logging
 - name: fluent-bit
   sourceRepository: github.com/gardener/logging
-  repository: eu.gcr.io/gardener-project/gardener/fluent-bit-to-loki
+  repository: vesoft/fluent-bit-to-loki
   tag: "v0.24.0"
 - name: loki
   sourceRepository: github.com/grafana/loki
@@ -192,25 +192,25 @@ images:
 # VPA
 - name: vpa-admission-controller
   sourceRepository: github.com/kubernetes/autoscaler
-  repository: eu.gcr.io/k8s-artifacts-prod/autoscaling/vpa-admission-controller
+  repository: vesoft/vpa-admission-controller
   tag: "0.8.0"
 - name: vpa-recommender
   sourceRepository: github.com/kubernetes/autoscaler
-  repository: eu.gcr.io/k8s-artifacts-prod/autoscaling/vpa-recommender
+  repository: vesoft/vpa-recommender
   tag: "0.8.0"
 - name: vpa-updater
   sourceRepository: github.com/kubernetes/autoscaler
-  repository: eu.gcr.io/k8s-artifacts-prod/autoscaling/vpa-updater
+  repository: vesoft/vpa-updater
   tag: "0.8.0"
 - name: vpa-exporter
   sourceRepository: github.com/gardener/vpa-exporter
-  repository: eu.gcr.io/gardener-project/gardener/vpa-exporter
+  repository: vesoft/vpa-exporter
   tag: "0.1.5"
 
 # HVPA
 - name: hvpa-controller
   sourceRepository: github.com/gardener/hvpa-controller
-  repository: eu.gcr.io/gardener-project/gardener/hvpa-controller
+  repository: vesoft/hvpa-controller
   tag: "v0.3.1"
 
 # Istio
@@ -230,5 +230,5 @@ images:
   tag: "1.17.8"
 - name: apiserver-proxy-sidecar
   sourceRepository: github.com/gardener/apiserver-proxy
-  repository: eu.gcr.io/gardener-project/gardener/apiserver-proxy
+  repository: vesoft/apiserver-proxy
   tag: "v0.1.0"
