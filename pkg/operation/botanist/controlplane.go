@@ -1620,6 +1620,10 @@ func (b *Botanist) DeployETCD(ctx context.Context) error {
 		values["hvpa"] = hvpaValues
 		values["podAnnotations"] = podAnnotations
 
+		if b.Seed.Info.Spec.Provider.Type == "alicloud" {
+			values["storageClass"] = "alicloud-disk-efficiency"
+		}
+
 		if err := b.K8sSeedClient.ChartApplier().Apply(ctx, filepath.Join(chartPathControlPlane, "etcd"), b.Shoot.SeedNamespace, name, kubernetes.Values(values)); err != nil {
 			return err
 		}

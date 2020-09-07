@@ -65,6 +65,9 @@ spec:
     - metadata:
         name: loki
       spec:
+        {{- if .Values.storageClass }}
+          storageClassName: {{ .Values.storageClass }}
+        {{- end }}
         accessModes:
         - ReadWriteOnce
         resources:

@@ -49,5 +49,9 @@ func (b *Botanist) DeploySeedLogging(ctx context.Context) error {
 		"replicas": b.Shoot.GetReplicas(1),
 	}
 
+	if b.Seed.Info.Spec.Provider.Type == "alicloud" {
+		lokiValues["storageClassName"] = "alicloud-disk-efficiency"
+	}
+
 	return b.K8sSeedClient.ChartApplier().Apply(ctx, filepath.Join(common.ChartPath, "seed-bootstrap", "charts", "loki"), b.Shoot.SeedNamespace, fmt.Sprintf("%s-logging", b.Shoot.SeedNamespace), kubernetes.Values(lokiValues))
 }
